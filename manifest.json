@@ -1,0 +1,19 @@
+{
+  "name": "ZOZ External Brain",
+  "short_name": "ZOZ Brain",
+  "description": "Interactive External Brain visual map for OlegGPT.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#03070f",
+  "theme_color": "#061528",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
