@@ -1,0 +1,10 @@
+[
+  {"label":"Start Here","nodeId":"CORE","url":"https://docs.google.com/document/d/18sWjCvFJNBc83cQj4ja7PCGewGGxC9D9omHJixx4m58/edit?usp=drivesdk"},
+  {"label":"Bootstrap","nodeId":"ZOZ-SYS-0002","url":"https://docs.google.com/document/d/1oh9Rhr9pcFXWsG4sXkqd8uXcRo-1W47j1M03pJcYxI8/edit"},
+  {"label":"Live Index","nodeId":"ZOZ-SYS-0003","url":"https://docs.google.com/spreadsheets/d/1XSvHsfn2MqH125-EnP6vDtj5Tm3hrYUXxulwFkRQ5pI/edit"},
+  {"label":"FD QA Engine","nodeId":"ZOZ-FD-0001","url":"https://drive.google.com/drive/folders/1tmDpJ4ZuO3CtieKcnFaH3U_l_cXP0PpY"},
+  {"label":"Goodmans","nodeId":"ZOZ-WORK-0001","url":"https://drive.google.com/drive/folders/1goIP9wVAbyiPLXP5gd073AEDZErFe9Zj"},
+  {"label":"Invoices","nodeId":"ZOZ-FIN-INV-0001","url":"https://docs.google.com/document/d/1vO4UGDKgbIPQOdEI8Qtf5spaYIeMAi3f5i_e4rP7djg/edit"},
+  {"label":"AI Agents","nodeId":"ZOZ-AI-AGENTS-0004","url":"https://docs.google.com/document/d/1F0X0kCts3jdA7C-WM7432_IqieLCoIobtB70IMu0UYE/edit?usp=drivesdk"},
+  {"label":"GitHub App","nodeId":"ZOZ-APP-0001","url":"https://github.com/zozmanz-creator/zoz-external-brain-app"}
+]
