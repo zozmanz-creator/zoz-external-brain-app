@@ -1,0 +1,21 @@
+[
+  {"from":"CORE","to":"ZOZ-SYS-0002","type":"entry"},
+  {"from":"CORE","to":"ZOZ-SYS-0003","type":"index"},
+  {"from":"CORE","to":"ZOZ-FD-0001","type":"project"},
+  {"from":"CORE","to":"ZOZ-WORK-0001","type":"workstream"},
+  {"from":"CORE","to":"ZOZ-FIN-INV-0001","type":"finance"},
+  {"from":"CORE","to":"ZOZ-SYS-0010","type":"rule"},
+  {"from":"CORE","to":"ZOZ-INBOX-0001","type":"queue"},
+  {"from":"CORE","to":"ZOZ-AI-AGENTS-0004","type":"automation"},
+  {"from":"CORE","to":"ZOZ-FD-PRODUCT-0001","type":"product"},
+  {"from":"CORE","to":"ZOZ-DT-0001","type":"future"},
+  {"from":"CORE","to":"ZOZ-SYS-0009","type":"map"},
+  {"from":"CORE","to":"ZOZ-APP-0001","type":"app"},
+  {"from":"ZOZ-SYS-0002","to":"ZOZ-SYS-0003","type":"routes-to"},
+  {"from":"ZOZ-SYS-0003","to":"ZOZ-SYS-0010","type":"controls"},
+  {"from":"ZOZ-SYS-0003","to":"ZOZ-INBOX-0001","type":"captures"},
+  {"from":"ZOZ-FD-0001","to":"ZOZ-FD-PRODUCT-0001","type":"productizes"},
+  {"from":"ZOZ-FD-0001","to":"ZOZ-DT-0001","type":"trains"},
+  {"from":"ZOZ-AI-AGENTS-0004","to":"ZOZ-FD-PRODUCT-0001","type":"enables"},
+  {"from":"ZOZ-APP-0001","to":"ZOZ-SYS-0003","type":"reads"}
+]
