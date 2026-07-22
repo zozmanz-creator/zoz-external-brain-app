@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Максимально полный по открытым источникам интерактивный каталог бассейнов Кишинёва, окрестностей и Вадул-луй-Водэ.">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="description" content="Интерактивная карта бассейнов Кишинёва, окрестностей и Вадул-луй-Водэ.">
 <title>Бассейны Кишинёва, окрестностей и Вадул-луй-Водэ</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
@@ -12,11 +15,10 @@
 .app{height:100%;display:grid;grid-template-columns:minmax(360px,440px) 1fr}
 .side{min-width:0;overflow:auto;background:white;border-right:1px solid var(--line);z-index:500}
 .head{padding:16px;background:linear-gradient(135deg,#effcf9,#fff4e8);position:sticky;top:0;z-index:600;border-bottom:1px solid var(--line)}
-h1{font-size:22px;line-height:1.15;margin:0 0 6px;color:var(--navy)}
-.subtitle{font-size:12.5px;color:#516c7a;line-height:1.4}.notice{font-size:11.5px;background:#fff;border:1px solid #badfdc;padding:8px 9px;border-radius:9px;margin:9px 0}
+h1{font-size:22px;line-height:1.15;margin:0 0 8px;color:var(--navy)}
 .search{width:100%;padding:10px 11px;border:1px solid #c8d5dc;border-radius:9px;font-size:14px}
 .filters{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}.filter{border:1px solid #d3dde2;background:white;border-radius:999px;padding:7px 9px;font-size:11.5px;font-weight:750;cursor:pointer}.filter.active{background:var(--navy);color:white;border-color:var(--navy)}
-.status{font-size:11.5px;color:#526b78;margin-top:9px}.list{padding:10px 11px 28px}
+.list{padding:10px 11px 28px}
 .card{border:1px solid var(--line);border-radius:12px;padding:11px;margin-bottom:9px;background:white;box-shadow:0 2px 8px rgba(15,50,70,.04);cursor:pointer}
 .card:hover{border-color:#91c7ca;transform:translateY(-1px)}.top{display:flex;gap:9px;align-items:flex-start}
 .num{flex:0 0 29px;height:29px;border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900}
@@ -37,8 +39,6 @@ h1{font-size:22px;line-height:1.15;margin:0 0 6px;color:var(--navy)}
 <aside class="side">
 <div class="head">
 <h1>Бассейны Кишинёва, окрестностей и Вадул-луй-Водэ</h1>
-<div class="subtitle">Максимально полный каталог по доступным открытым источникам. Бассейны, спортклубы, отели, школы и санаторные объекты.</div>
-<div class="notice"><b>Проверено 22.07.2026.</b> Цена и доступ могут измениться. Пунктирный маркер означает приблизительную точку — откройте «Маршрут» и подтвердите перед поездкой.</div>
 <input id="q" class="search" placeholder="Поиск по названию, району, цене или адресу">
 <div class="filters">
 <button class="filter active" data-f="all">Все</button>
@@ -50,14 +50,13 @@ h1{font-size:22px;line-height:1.15;margin:0 0 6px;color:var(--navy)}
 <button class="filter" data-f="school">Школы</button>
 <button class="filter" data-f="needs-check">Требует уточнения</button>
 </div>
-<div id="status" class="status">Загрузка…</div>
 </div>
 <div id="list" class="list"></div>
 </aside>
 <main id="map"></main>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="data-day.js"></script><script src="data-sport.js"></script><script src="data-hotel.js"></script><script src="data-vadul.js"></script>
+<script src="data-day.js?v=20260722-2015"></script><script src="data-sport.js?v=20260722-2015"></script><script src="data-hotel.js?v=20260722-2015"></script><script src="data-vadul.js?v=20260722-2015"></script>
 <script>
 const rows=(window.POOLS_PARTS||[]).flat().sort((a,b)=>a.id-b.id);
 const labels={"day-city":"Бассейн в городе","day-near":"Бассейн рядом","vadul":"Вадул-луй-Водэ","sport":"Спорт / фитнес","hotel":"Отель / частный","school":"Школа плавания","needs-check":"Требует уточнения","inactive":"Неактивен / реконструкция"};
@@ -77,7 +76,6 @@ for(const r of rows){const m=L.marker([r.lat,r.lon],{icon:icon(r)}).bindPopup(po
 function render(){
  const filtered=rows.filter(match);document.getElementById("list").innerHTML=filtered.map(card).join("");
  markers.forEach((m,id)=>{const r=rows.find(x=>x.id===id);if(match(r)){if(!map.hasLayer(m))m.addTo(map)}else if(map.hasLayer(m))map.removeLayer(m)});
- document.getElementById("status").textContent=`Показано: ${filtered.length} из ${rows.length}. Точных точек: ${filtered.filter(x=>x.coord_quality==="exact").length}; приблизительных: ${filtered.filter(x=>x.coord_quality==="approx").length}.`;
  document.querySelectorAll(".card").forEach(c=>c.onclick=e=>{if(e.target.closest("a"))return;const m=markers.get(Number(c.dataset.id));if(m){map.setView(m.getLatLng(),14,{animate:true});m.openPopup();if(innerWidth<801)scrollTo({top:0,behavior:"smooth"})}})
 }
 document.querySelectorAll(".filter").forEach(b=>b.onclick=()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");active=b.dataset.f;render()});
@@ -87,3 +85,4 @@ const b=rows.map(x=>[x.lat,x.lon]);if(b.length)map.fitBounds(b,{padding:[25,25],
 const leg=L.control({position:"bottomleft"});leg.onAdd=()=>{const d=L.DomUtil.create("div","legend");d.innerHTML=`<b>Категории</b><br><span class="dot day-city"></span>бассейны в городе<br><span class="dot day-near"></span>бассейны рядом<br><span class="dot vadul"></span>Вадул-луй-Водэ<br><span class="dot sport"></span>спорт / фитнес<br><span class="dot hotel"></span>отели / частные<br><span class="dot school"></span>школы<br><span class="dot needs-check"></span>нужно уточнить`;return d};leg.addTo(map);
 </script>
 </body></html>
+<!-- build 20260722-2015 -->
