@@ -37,13 +37,13 @@ h1{font-size:22px;line-height:1.15;margin:0 0 6px;color:var(--navy)}
 <aside class="side">
 <div class="head">
 <h1>Бассейны Кишинёва, окрестностей и Вадул-луй-Водэ</h1>
-<div class="subtitle">Максимально полный каталог по доступным открытым источникам. Дневные бассейны, спортклубы, отели, школы и санаторные объекты.</div>
+<div class="subtitle">Максимально полный каталог по доступным открытым источникам. Бассейны, спортклубы, отели, школы и санаторные объекты.</div>
 <div class="notice"><b>Проверено 22.07.2026.</b> Цена и доступ могут измениться. Пунктирный маркер означает приблизительную точку — откройте «Маршрут» и подтвердите перед поездкой.</div>
 <input id="q" class="search" placeholder="Поиск по названию, району, цене или адресу">
 <div class="filters">
 <button class="filter active" data-f="all">Все</button>
-<button class="filter" data-f="day-city">Дневные в городе</button>
-<button class="filter" data-f="day-near">Дневные рядом</button>
+<button class="filter" data-f="day-city">Бассейны в городе</button>
+<button class="filter" data-f="day-near">Бассейны рядом</button>
 <button class="filter" data-f="vadul">Вадул-луй-Водэ</button>
 <button class="filter" data-f="sport">Спорт / фитнес</button>
 <button class="filter" data-f="hotel">Отели / частные</button>
@@ -60,7 +60,7 @@ h1{font-size:22px;line-height:1.15;margin:0 0 6px;color:var(--navy)}
 <script src="data-day.js"></script><script src="data-sport.js"></script><script src="data-hotel.js"></script><script src="data-vadul.js"></script>
 <script>
 const rows=(window.POOLS_PARTS||[]).flat().sort((a,b)=>a.id-b.id);
-const labels={"day-city":"Дневной в городе","day-near":"Дневной рядом","vadul":"Вадул-луй-Водэ","sport":"Спорт / фитнес","hotel":"Отель / частный","school":"Школа плавания","needs-check":"Требует уточнения","inactive":"Неактивен / реконструкция"};
+const labels={"day-city":"Бассейн в городе","day-near":"Бассейн рядом","vadul":"Вадул-луй-Водэ","sport":"Спорт / фитнес","hotel":"Отель / частный","school":"Школа плавания","needs-check":"Требует уточнения","inactive":"Неактивен / реконструкция"};
 const map=L.map("map",{zoomControl:true}).setView([47.02,28.84],9);
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap contributors"}).addTo(map);
 let active="all",term="",markers=new Map();
@@ -84,6 +84,6 @@ document.querySelectorAll(".filter").forEach(b=>b.onclick=()=>{document.querySel
 document.getElementById("q").oninput=e=>{term=e.target.value.trim().toLowerCase();render()};
 render();
 const b=rows.map(x=>[x.lat,x.lon]);if(b.length)map.fitBounds(b,{padding:[25,25],maxZoom:10});
-const leg=L.control({position:"bottomleft"});leg.onAdd=()=>{const d=L.DomUtil.create("div","legend");d.innerHTML=`<b>Категории</b><br><span class="dot day-city"></span>дневные в городе<br><span class="dot day-near"></span>дневные рядом<br><span class="dot vadul"></span>Вадул-луй-Водэ<br><span class="dot sport"></span>спорт / фитнес<br><span class="dot hotel"></span>отели / частные<br><span class="dot school"></span>школы<br><span class="dot needs-check"></span>нужно уточнить`;return d};leg.addTo(map);
+const leg=L.control({position:"bottomleft"});leg.onAdd=()=>{const d=L.DomUtil.create("div","legend");d.innerHTML=`<b>Категории</b><br><span class="dot day-city"></span>бассейны в городе<br><span class="dot day-near"></span>бассейны рядом<br><span class="dot vadul"></span>Вадул-луй-Водэ<br><span class="dot sport"></span>спорт / фитнес<br><span class="dot hotel"></span>отели / частные<br><span class="dot school"></span>школы<br><span class="dot needs-check"></span>нужно уточнить`;return d};leg.addTo(map);
 </script>
 </body></html>
