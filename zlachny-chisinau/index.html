@@ -15,15 +15,175 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&family=Russo+One&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23050608'/%3E%3Cpath d='M37 2 10 38h19l-5 24 30-40H36z' fill='%23caff00'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 <div class="demo-ribbon">ДЕМО-КОНЦЕПТ · НАЗВАНИЯ И АДРЕСА ПОКА НЕ ПОДТВЕРЖДЕНЫ</div>
-<header class="topbar"><div class="shell topbar-inner"><a class="brand" href="#top"><div class="bolt">ϟ</div><div><div class="brand-name">ЗЛАЧНЫЙ КИШИНЁВ</div><div class="brand-sub">ГОРОД ПОСЛЕ ЗАКАТА</div></div></a><nav class="nav"><a href="#moods">По настроению</a><a href="#picks">Сегодня</a><a href="#route">Маршруты</a><a href="#" data-map>Карта</a><a href="#about">Блог</a></nav><div class="top-actions"><button class="top-cta" data-scroll="#route"><span>＋</span> Куда сегодня?</button><button class="menu-btn" aria-label="Меню">☰</button></div></div></header>
-<main id="top"><section class="hero"><div class="shell hero-grid"><div class="hero-copy"><span class="graffiti crown crown-a">♛</span><span class="graffiti crown crown-b">♛</span><h1 class="title"><span class="title-small">Путеводитель по</span><span class="title-brush">злачным</span><span class="title-small title-bottom">местам Кишинёва</span></h1><p class="lead">Не скучный каталог адресов, а живой выбор вечера:<br class="desktop-only"> где выпить, потанцевать, посмотреть кино,<br class="desktop-only"> послушать музыку и <strong>достойно закончить ночь.</strong></p><div class="hero-actions"><button class="btn primary" data-scroll="#route"><span>ϟ</span> Собрать вечер</button><button class="btn secondary" data-scroll="#moods">Смотреть по настроению <span>→</span></button></div><div class="trust"><div class="trust-item"><div class="trust-ico">🗺</div><div>Карта —<br>не главная,<br>а второй экран</div></div><div class="trust-item"><div class="trust-ico">☺</div><div>Сначала настроение,<br>потом место</div></div><div class="trust-item"><div class="trust-ico">⬡</div><div>Проверяем места<br>регулярно</div></div></div></div><div class="hero-visual"><div class="hero-photo"></div><div class="hero-grain"></div><div class="hero-info"><div class="status"><span class="dot"></span>ГОРОД ПРОСЫПАЕТСЯ</div><div class="clock" id="clock">20:05</div><div class="date" id="date">Воскресенье, 26 июля</div><div class="location">⌖ Кишинёв <span class="weather">◔ +18°C</span></div></div><div class="hero-tabs"><button class="hero-tab active" data-hero-filter="dance"><span>🕺</span>Танцы</button><button class="hero-tab" data-hero-filter="talk"><span>🍸</span>Коктейли</button><button class="hero-tab" data-hero-filter="cinema"><span>🎬</span>Кино</button><button class="hero-tab" data-hero-filter="late"><span>🍔</span>Late food</button></div></div></div></section>
-<section class="mood-section" id="moods"><div class="shell"><div class="section-label">Выбери своё настроение</div><div class="mood-grid"><button class="mood active" style="--m:#caff00" data-filter="dance"><span class="mood-icon">🕺</span><span>Танцевать<br>до упора</span></button><button class="mood" style="--m:#ff38a8" data-filter="talk"><span class="mood-icon">🍸</span><span>Выпить и<br>поговорить</span></button><button class="mood" style="--m:#ff4a65" data-filter="date"><span class="mood-icon">♡</span><span>Свидание<br>с шансами</span></button><button class="mood" style="--m:#38dbff" data-filter="live"><span class="mood-icon">♫</span><span>Живая<br>музыка</span></button><button class="mood" style="--m:#bd48ff" data-filter="cinema"><span class="mood-icon">▣</span><span>Кино<br>и после</span></button><button class="mood" style="--m:#ffc400" data-filter="simple"><span class="mood-icon">🍺</span><span>Без<br>пафоса</span></button><button class="mood" style="--m:#00ff83" data-filter="weird"><span class="mood-icon">👽</span><span>Что-нибудь<br>странное</span></button><button class="mood" style="--m:#ff7100" data-filter="late"><span class="mood-icon">◴</span><span>После<br>полуночи</span></button></div></div></section>
-<section class="picks" id="picks"><div class="shell"><div class="picks-head"><div class="picks-title">Подборки для тебя <em>↝</em></div><button class="all-link" data-scroll="#route">Собрать свой маршрут →</button></div><div class="cards" id="cards"><article class="venue" data-kind="dance simple" style="--accent:#caff00;--photo:var(--club-photo)"><div class="venue-photo"></div><span class="tag">КЛУБ · ДЕМО</span><button class="fav" aria-label="В избранное">♡</button><div class="venue-content"><h3>Танцы<br>до упора</h3><p>Клубы, вечеринки, танцполы</p><div class="meta"><span>ТАНЦЫ</span><span>18+</span><b>$$$</b></div></div></article><article class="venue" data-kind="talk date" style="--accent:#ff38a8;--photo:var(--bar-photo)"><div class="venue-photo"></div><span class="tag">БАР · ДЕМО</span><button class="fav" aria-label="В избранное">♡</button><div class="venue-content"><h3>Выпить<br>и поговорить</h3><p>Бары, коктейли, атмосфера</p><div class="meta"><span>КОКТЕЙЛИ</span><span>БЕСЕДЫ</span><b>$$</b></div></div></article><article class="venue" data-kind="cinema date" style="--accent:#b749ff;--photo:var(--cinema-photo)"><div class="venue-photo"></div><span class="tag">КИНО · ДЕМО</span><button class="fav" aria-label="В избранное">♡</button><div class="venue-content"><h3>Кино<br>и после</h3><p>Поздний сеанс и продолжение</p><div class="meta"><span>КИНО</span><span>ПОСЛЕ</span><b>$</b></div></div></article><article class="venue" data-kind="live weird" style="--accent:#38dbff;--photo:var(--live-photo)"><div class="venue-photo"></div><span class="tag">LIVE · ДЕМО</span><button class="fav" aria-label="В избранное">♡</button><div class="venue-content"><h3>Живая<br>сцена</h3><p>Музыка, концерт, небольшой бар</p><div class="meta"><span>LIVE</span><span>БАР</span><b>$$</b></div></div></article><article class="venue" data-kind="late simple" style="--accent:#ff7100;--photo:var(--food-photo)"><div class="venue-photo"></div><span class="tag">LATE FOOD · ДЕМО</span><button class="fav" aria-label="В избранное">♡</button><div class="venue-content"><h3>Финал<br>после полуночи</h3><p>Еда, которая действительно работает поздно</p><div class="meta"><span>ЕДА</span><span>24/7</span><b>$</b></div></div></article></div><div class="demo-note">Карточки пока демонстрационные. Реальные названия, адреса, цены и расписания будут добавлены только после проверки источников.</div></div></section>
-<section class="route" id="route"><div class="shell"><div class="route-card"><div class="route-head"><div><div class="route-kicker">Конструктор вечера</div><h2>Собрать маршрут за 20 секунд</h2><p>Разогрев → главное событие → нормальный финал.</p></div><button class="route-close" aria-label="Свернуть">−</button></div><div class="form"><label class="field">Энергия<select id="energy"><option value="wild">Шумно и дико</option><option value="balanced">Сначала спокойно</option><option value="calm">Красиво и без суеты</option></select></label><label class="field">Компания<select id="company"><option value="crew">Своя банда</option><option value="couple">Вдвоём</option><option value="solo">Один, но не пропал</option></select></label><label class="field">Бюджет на человека<select id="budget"><option value="mid">500–1000 MDL</option><option value="low">До 500 MDL</option><option value="high">Можно не считать</option></select></label><button class="build" id="build">Собрать вечер ϟ</button></div><div class="result" id="result"><div class="result-title" id="resultTitle">Твой сценарий</div><div class="route-line"><div class="stop"><small>20:00 · РАЗОГРЕВ</small><b id="s1">Бар</b><span>Собраться, поговорить и настроиться.</span></div><div class="arr">→</div><div class="stop"><small>22:30 · ГЛАВНОЕ</small><b id="s2">Событие</b><span>Главная точка под выбранную энергию.</span></div><div class="arr">→</div><div class="stop"><small>01:30 · ФИНАЛ</small><b id="s3">Ночная еда</b><span>Последний достойный поступок перед домом.</span></div></div></div></div></div></section>
-<section class="newsletter" id="about"><div class="shell"><form class="newsletter-box" id="newsletter"><div class="newsletter-ico">➤</div><div><b>БУДЬ В КУРСЕ</b><span>События, вечеринки и новые места</span></div><input type="email" placeholder="Твой e-mail" required><button>ПОДПИСАТЬСЯ</button><div class="socials"><span>МЫ В СОЦСЕТЯХ</span><b>◎</b><b>➤</b><b>♪</b><b>●</b></div></form></div></section></main>
+
+<header class="topbar">
+  <div class="shell topbar-inner">
+    <a class="brand" href="#top">
+      <div class="bolt">ϟ</div>
+      <div>
+        <div class="brand-name">ЗЛАЧНЫЙ КИШИНЁВ</div>
+        <div class="brand-sub">ГОРОД ПОСЛЕ ЗАКАТА</div>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="#moods">По настроению</a>
+      <a href="#picks">Сегодня</a>
+      <a href="#route">Маршруты</a>
+      <a href="#" data-map>Карта</a>
+      <a href="#about">Блог</a>
+    </nav>
+    <div class="top-actions">
+      <button class="top-cta" data-scroll="#route"><span>＋</span> Куда сегодня?</button>
+      <button class="menu-btn" aria-label="Меню">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="shell hero-grid">
+    <div class="hero-copy">
+      <span class="graffiti crown crown-a">♛</span>
+      <span class="graffiti crown crown-b">♛</span>
+      <h1 class="title">
+        <span class="title-small">Путеводитель по</span>
+        <span class="title-brush">злачным</span>
+        <span class="title-small title-bottom">местам Кишинёва</span>
+      </h1>
+      <p class="lead">Не скучный каталог адресов, а живой выбор вечера:<br class="desktop-only"> где выпить, потанцевать, посмотреть кино,<br class="desktop-only"> послушать музыку и <strong>достойно закончить ночь.</strong></p>
+      <div class="hero-actions">
+        <button class="btn primary" data-scroll="#route"><span>ϟ</span> Собрать вечер</button>
+        <button class="btn secondary" data-scroll="#moods">Смотреть по настроению <span>→</span></button>
+      </div>
+      <div class="trust">
+        <div class="trust-item"><div class="trust-ico">🗺</div><div>Карта —<br>не главная,<br>а второй экран</div></div>
+        <div class="trust-item"><div class="trust-ico">☺</div><div>Сначала настроение,<br>потом место</div></div>
+        <div class="trust-item"><div class="trust-ico">⬡</div><div>Проверяем места<br>регулярно</div></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-photo"></div>
+      <div class="hero-grain"></div>
+      <div class="hero-info">
+        <div class="status"><span class="dot"></span>ГОРОД ПРОСЫПАЕТСЯ</div>
+        <div class="clock" id="clock">20:05</div>
+        <div class="date" id="date">Воскресенье, 26 июля</div>
+        <div class="location">⌖ Кишинёв <span class="weather">◔ +18°C</span></div>
+      </div>
+      <div class="hero-tabs">
+        <button class="hero-tab active" data-hero-filter="dance"><span>🕺</span>Танцы</button>
+        <button class="hero-tab" data-hero-filter="talk"><span>🍸</span>Коктейли</button>
+        <button class="hero-tab" data-hero-filter="cinema"><span>🎬</span>Кино</button>
+        <button class="hero-tab" data-hero-filter="late"><span>🍔</span>Late food</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mood-section" id="moods">
+  <div class="shell">
+    <div class="section-label">Выбери своё настроение</div>
+    <div class="mood-grid">
+      <button class="mood active" style="--m:#caff00" data-filter="dance"><span class="mood-icon">🕺</span><span>Танцевать<br>до упора</span></button>
+      <button class="mood" style="--m:#ff38a8" data-filter="talk"><span class="mood-icon">🍸</span><span>Выпить и<br>поговорить</span></button>
+      <button class="mood" style="--m:#ff4a65" data-filter="date"><span class="mood-icon">♡</span><span>Свидание<br>с шансами</span></button>
+      <button class="mood" style="--m:#38dbff" data-filter="live"><span class="mood-icon">♫</span><span>Живая<br>музыка</span></button>
+      <button class="mood" style="--m:#bd48ff" data-filter="cinema"><span class="mood-icon">▣</span><span>Кино<br>и после</span></button>
+      <button class="mood" style="--m:#ffc400" data-filter="simple"><span class="mood-icon">🍺</span><span>Без<br>пафоса</span></button>
+      <button class="mood" style="--m:#00ff83" data-filter="weird"><span class="mood-icon">👽</span><span>Что-нибудь<br>странное</span></button>
+      <button class="mood" style="--m:#ff7100" data-filter="late"><span class="mood-icon">◴</span><span>После<br>полуночи</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="picks" id="picks">
+  <div class="shell">
+    <div class="picks-head">
+      <div class="picks-title">Подборки для тебя <em>↝</em></div>
+      <button class="all-link" data-scroll="#route">Собрать свой маршрут →</button>
+    </div>
+    <div class="cards" id="cards">
+      <article class="venue" data-kind="dance simple" style="--accent:#caff00;--photo:var(--club-photo)">
+        <div class="venue-photo"></div><span class="tag">КЛУБ · ДЕМО</span><button class="fav" aria-label="В избранное">♡</button>
+        <div class="venue-content"><h3>Танцы<br>до упора</h3><p>Клубы, вечеринки, танцполы</p><div class="meta"><span>ТАНЦЫ</span><span>18+</span><b>$$$</b></div></div>
+      </article>
+      <article class="venue" data-kind="talk date" style="--accent:#ff38a8;--photo:var(--bar-photo)">
+        <div class="venue-photo"></div><span class="tag">БАР · ДЕМО</span><button class="fav" aria-label="В избранное">♡</button>
+        <div class="venue-content"><h3>Выпить<br>и поговорить</h3><p>Бары, коктейли, атмосфера</p><div class="meta"><span>КОКТЕЙЛИ</span><span>БЕСЕДЫ</span><b>$$</b></div></div>
+      </article>
+      <article class="venue" data-kind="cinema date" style="--accent:#b749ff;--photo:var(--cinema-photo)">
+        <div class="venue-photo"></div><span class="tag">КИНО · ДЕМО</span><button class="fav" aria-label="В избранное">♡</button>
+        <div class="venue-content"><h3>Кино<br>и после</h3><p>Поздний сеанс и продолжение</p><div class="meta"><span>КИНО</span><span>ПОСЛЕ</span><b>$</b></div></div>
+      </article>
+      <article class="venue" data-kind="live weird" style="--accent:#38dbff;--photo:var(--live-photo)">
+        <div class="venue-photo"></div><span class="tag">LIVE · ДЕМО</span><button class="fav" aria-label="В избранное">♡</button>
+        <div class="venue-content"><h3>Живая<br>сцена</h3><p>Музыка, концерт, небольшой бар</p><div class="meta"><span>LIVE</span><span>БАР</span><b>$$</b></div></div>
+      </article>
+      <article class="venue" data-kind="late simple" style="--accent:#ff7100;--photo:var(--food-photo)">
+        <div class="venue-photo"></div><span class="tag">LATE FOOD · ДЕМО</span><button class="fav" aria-label="В избранное">♡</button>
+        <div class="venue-content"><h3>Финал<br>после полуночи</h3><p>Еда, которая действительно работает поздно</p><div class="meta"><span>ЕДА</span><span>24/7</span><b>$</b></div></div>
+      </article>
+    </div>
+    <div class="demo-note">Карточки пока демонстрационные. Реальные названия, адреса, цены и расписания будут добавлены только после проверки источников.</div>
+  </div>
+</section>
+
+<section class="route" id="route">
+  <div class="shell">
+    <div class="route-card">
+      <div class="route-head">
+        <div><div class="route-kicker">Конструктор вечера</div><h2>Собрать маршрут за 20 секунд</h2><p>Разогрев → главное событие → нормальный финал.</p></div>
+        <button class="route-close" aria-label="Свернуть">−</button>
+      </div>
+      <div class="form">
+        <label class="field">Энергия<select id="energy"><option value="wild">Шумно и дико</option><option value="balanced">Сначала спокойно</option><option value="calm">Красиво и без суеты</option></select></label>
+        <label class="field">Компания<select id="company"><option value="crew">Своя банда</option><option value="couple">Вдвоём</option><option value="solo">Один, но не пропал</option></select></label>
+        <label class="field">Бюджет на человека<select id="budget"><option value="mid">500–1000 MDL</option><option value="low">До 500 MDL</option><option value="high">Можно не считать</option></select></label>
+        <button class="build" id="build">Собрать вечер ϟ</button>
+      </div>
+      <div class="result" id="result">
+        <div class="result-title" id="resultTitle">Твой сценарий</div>
+        <div class="route-line">
+          <div class="stop"><small>20:00 · РАЗОГРЕВ</small><b id="s1">Бар</b><span>Собраться, поговорить и настроиться.</span></div>
+          <div class="arr">→</div>
+          <div class="stop"><small>22:30 · ГЛАВНОЕ</small><b id="s2">Событие</b><span>Главная точка под выбранную энергию.</span></div>
+          <div class="arr">→</div>
+          <div class="stop"><small>01:30 · ФИНАЛ</small><b id="s3">Ночная еда</b><span>Последний достойный поступок перед домом.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter" id="about">
+  <div class="shell">
+    <form class="newsletter-box" id="newsletter">
+      <div class="newsletter-ico">➤</div>
+      <div><b>БУДЬ В КУРСЕ</b><span>События, вечеринки и новые места</span></div>
+      <input type="email" placeholder="Твой e-mail" required>
+      <button>ПОДПИСАТЬСЯ</button>
+      <div class="socials"><span>МЫ В СОЦСЕТЯХ</span><b>◎</b><b>➤</b><b>♪</b><b>●</b></div>
+    </form>
+  </div>
+</section>
+</main>
+
 <footer class="footer"><div class="shell footer-row"><span>© 2026 Злачный Кишинёв · Демонстрационная версия</span><span>Фотографии в визуальном концепте синтетические; сведения о местах пока не опубликованы как факты.</span></div></footer>
-<nav class="mobile-nav"><a href="#moods"><b>◉</b>Настроение</a><a href="#picks"><b>✦</b>Сегодня</a><a href="#route"><b>↝</b>Маршрут</a><button data-map><b>⌖</b>Карта</button></nav><div class="toast" id="toast"></div><div class="modal" id="mapModal"><div class="modal-card"><button class="modal-close" id="mapClose">×</button><iframe title="Карта Кишинёва" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=28.777%2C46.97%2C28.93%2C47.08&amp;layer=mapnik&amp;marker=47.0105%2C28.8638"></iframe></div></div><script src="app.js"></script></body></html>
+
+<nav class="mobile-nav">
+  <a href="#moods"><b>◉</b>Настроение</a>
+  <a href="#picks"><b>✦</b>Сегодня</a>
+  <a href="#route"><b>↝</b>Маршрут</a>
+  <button data-map><b>⌖</b>Карта</button>
+</nav>
+
+<div class="toast" id="toast"></div>
+<div class="modal" id="mapModal"><div class="modal-card"><button class="modal-close" id="mapClose">×</button><iframe title="Карта Кишинёва" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=28.777%2C46.97%2C28.93%2C47.08&amp;layer=mapnik&amp;marker=47.0105%2C28.8638"></iframe></div></div>
+<script src="app.js?v=5"></script>
+</body>
+</html>
