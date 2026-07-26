@@ -10,18 +10,16 @@
 <meta property="og:description" content="Подбери вечер: бары, танцы, кино, музыка и ночные маршруты Кишинёва.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zozmanz-creator.github.io/zoz-external-brain-app/zlachny-chisinau/">
-<meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/58d6b4fff7e0ab027a072845/1599487851648-2JOW59IZPAYPFH8PLD8F/zaxi-night1.jpg?format=2500w">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23050608'/%3E%3Cpath d='M37 2 10 38h19l-5 24 30-40H36z' fill='%23caff00'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles.css?v=6">
+<link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
-<svg class="svg-sprite" aria-hidden="true" focusable="false">
-  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4.8 13h6L10 22l9.2-12H13l0-8Z"/></symbol>
+<svg class="svg-sprite" aria-hidden="true">
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4.8 13h6L10 22l9.2-12H13V2Z"/></symbol>
   <symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Z"/><path d="M9 3v15M15 6v15"/></symbol>
-  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3c.7 4.8 3.2 7.3 8 8-4.8.7-7.3 3.2-8 8-.7-4.8-3.2-7.3-8-8 4.8-.7 7.3-3.2 8-8Z"/><path d="M19 3v4M21 5h-4"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3c.7 4.8 3.2 7.3 8 8-4.8.7-7.3 3.2-8 8-.7-4.8-3.2-7.3-8-8 4.8-.7 7.3-3.2 8-8Z"/></symbol>
   <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2 4.5 5v6.2c0 4.8 2.9 8.7 7.5 10.8 4.6-2.1 7.5-6 7.5-10.8V5L12 2Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></symbol>
   <symbol id="i-dance" viewBox="0 0 24 24"><circle cx="13.5" cy="4.5" r="2"/><path d="m9 8 4-1.5 3.5 2.2 3-1.2M13 7l-1 5 3.5 3.5M12 12l-4 3-2 5M15.5 15.5l2.5 4.5M8.5 9.5 5 8"/></symbol>
   <symbol id="i-martini" viewBox="0 0 24 24"><path d="M3 4h18l-9 9-9-9Z"/><path d="M12 13v7M8 20h8M7 8h10"/></symbol>
@@ -35,108 +33,57 @@
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
   <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"/></symbol>
-  <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-8 20-4-8-8-4 20-8Z"/><path d="M10 14 22 2"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
-  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
 </svg>
 
-<div class="demo-ribbon">ДЕМО-КОНЦЕПТ · ДАННЫЕ О МЕСТАХ ПОКА НЕ ПОДТВЕРЖДЕНЫ</div>
-<header class="topbar">
-  <div class="shell topbar-inner">
-    <a class="brand" href="#top" aria-label="Злачный Кишинёв">
-      <svg class="brand-bolt"><use href="#i-bolt"/></svg>
-      <div><div class="brand-name">ЗЛАЧНЫЙ КИШИНЁВ</div><div class="brand-sub">ГОРОД ПОСЛЕ ЗАКАТА</div></div>
-    </a>
-    <nav class="nav">
-      <a href="#moods">По настроению</a><a href="#picks">Сегодня</a><a href="#route">Маршруты</a><a href="#" data-map>Карта</a><a href="#about">Блог</a>
-    </nav>
-    <div class="top-actions">
-      <button class="top-cta" data-scroll="#route"><span>＋</span> Куда сегодня?</button>
-      <button class="menu-btn" aria-label="Открыть меню"><svg><use href="#i-menu"/></svg></button>
-    </div>
-  </div>
-</header>
+<div class="demo-ribbon">ДЕМО · СТРУКТУРА УЖЕ РАБОТАЕТ, ДАННЫЕ ЕЩЁ НЕ ПОДТВЕРЖДЕНЫ</div>
+<header class="topbar"><div class="shell topbar-inner">
+  <a class="brand" href="#top"><svg class="brand-bolt"><use href="#i-bolt"/></svg><div><div class="brand-name">ЗЛАЧНЫЙ КИШИНЁВ</div><div class="brand-sub">ГОРОД ПОСЛЕ ЗАКАТА</div></div></a>
+  <nav class="nav"><a href="#moods">По настроению</a><a href="#picks">Места</a><a href="#route">Маршруты</a><a href="#" data-map>Карта</a></nav>
+  <button class="top-cta" data-scroll="#route">＋ Куда сегодня?</button>
+</div></header>
 
 <main id="top">
-<section class="hero">
-  <div class="shell hero-grid">
-    <div class="hero-copy">
-      <span class="graffiti crown crown-a">♛</span><span class="graffiti crown crown-b">♛</span>
-      <h1 class="title"><span class="title-small">Путеводитель по</span><span class="title-brush">злачным</span><span class="title-small title-bottom">местам Кишинёва</span></h1>
-      <p class="lead">Не скучный каталог адресов, а живой выбор вечера:<br class="desktop-only"> где выпить, потанцевать, посмотреть кино,<br class="desktop-only"> послушать музыку и <strong>достойно закончить ночь.</strong></p>
-      <div class="hero-actions">
-        <button class="btn primary" data-scroll="#route"><svg><use href="#i-bolt"/></svg> Собрать вечер</button>
-        <button class="btn secondary" data-scroll="#moods">Смотреть по настроению <svg><use href="#i-arrow"/></svg></button>
-      </div>
-      <div class="trust">
-        <div class="trust-item"><svg class="trust-ico"><use href="#i-map"/></svg><div>Карта —<br>не главная,<br>а второй экран</div></div>
-        <div class="trust-item"><svg class="trust-ico"><use href="#i-spark"/></svg><div>Сначала настроение,<br>потом место</div></div>
-        <div class="trust-item"><svg class="trust-ico"><use href="#i-shield"/></svg><div>Проверяем места<br>регулярно</div></div>
-      </div>
-    </div>
-
-    <div class="hero-visual">
-      <div class="hero-photo" role="img" aria-label="Ночная панорама Кишинёва и rooftop-вечеринка"></div>
-      <div class="hero-shade"></div>
-      <div class="hero-info">
-        <div class="status"><span class="dot"></span>ГОРОД ПРОСЫПАЕТСЯ</div>
-        <div class="clock" id="clock">21:03</div>
-        <div class="date" id="date">Воскресенье, 26 июля</div>
-        <div class="location"><svg><use href="#i-pin"/></svg>Кишинёв <span class="weather"><svg><use href="#i-moon"/></svg>+18°C</span></div>
-      </div>
-      <div class="hero-tabs">
-        <button class="hero-tab active" data-hero-filter="dance"><svg><use href="#i-dance"/></svg><span>Танцы</span></button>
-        <button class="hero-tab" data-hero-filter="talk"><svg><use href="#i-martini"/></svg><span>Коктейли</span></button>
-        <button class="hero-tab" data-hero-filter="cinema"><svg><use href="#i-film"/></svg><span>Кино</span></button>
-        <button class="hero-tab" data-hero-filter="late"><svg><use href="#i-burger"/></svg><span>Late food</span></button>
-      </div>
-    </div>
+<section class="hero"><div class="shell hero-grid">
+  <div class="hero-copy">
+    <h1 class="title"><span class="title-small">Путеводитель по</span><span class="title-brush">злачным</span><span class="title-small title-bottom">местам Кишинёва</span></h1>
+    <p class="lead">Не скучный каталог адресов, а живой выбор вечера: где выпить, потанцевать, посмотреть кино, послушать музыку и <strong>достойно закончить ночь.</strong></p>
+    <div class="hero-actions"><button class="btn primary" data-scroll="#route"><svg><use href="#i-bolt"/></svg>Собрать вечер</button><button class="btn secondary" data-scroll="#moods">Смотреть по настроению <svg><use href="#i-arrow"/></svg></button></div>
+    <div class="trust"><div class="trust-item"><svg><use href="#i-map"/></svg><span>Карта — второй экран</span></div><div class="trust-item"><svg><use href="#i-spark"/></svg><span>Сначала настроение</span></div><div class="trust-item"><svg><use href="#i-shield"/></svg><span>Каждое место проверяется</span></div></div>
   </div>
-</section>
-
-<section class="mood-section" id="moods"><div class="shell">
-  <div class="section-label">Выбери своё настроение</div>
-  <div class="mood-grid">
-    <button class="mood active" style="--m:#caff00" data-filter="dance"><svg><use href="#i-dance"/></svg><span>Танцевать<br>до упора</span></button>
-    <button class="mood" style="--m:#ff38a8" data-filter="talk"><svg><use href="#i-martini"/></svg><span>Выпить и<br>поговорить</span></button>
-    <button class="mood" style="--m:#ff4a65" data-filter="date"><svg><use href="#i-heart"/></svg><span>Свидание<br>с шансами</span></button>
-    <button class="mood" style="--m:#38dbff" data-filter="live"><svg><use href="#i-music"/></svg><span>Живая<br>музыка</span></button>
-    <button class="mood" style="--m:#bd48ff" data-filter="cinema"><svg><use href="#i-film"/></svg><span>Кино<br>и после</span></button>
-    <button class="mood" style="--m:#ffc400" data-filter="simple"><svg><use href="#i-beer"/></svg><span>Без<br>пафоса</span></button>
-    <button class="mood" style="--m:#00ff83" data-filter="weird"><svg><use href="#i-alien"/></svg><span>Что-нибудь<br>странное</span></button>
-    <button class="mood" style="--m:#ff7100" data-filter="late"><svg><use href="#i-clock"/></svg><span>После<br>полуночи</span></button>
-  </div>
+  <div class="hero-visual"><div class="hero-photo"></div><div class="hero-shade"></div><div class="hero-info"><div class="status"><span class="dot"></span>ГОРОД ПРОСЫПАЕТСЯ</div><div class="clock" id="clock">23:44</div><div class="date" id="date">Воскресенье, 26 июля</div><div class="location"><svg><use href="#i-pin"/></svg>Кишинёв</div></div><div class="hero-tabs"><button class="hero-tab active" data-filter="dance"><svg><use href="#i-dance"/></svg>Танцы</button><button class="hero-tab" data-filter="talk"><svg><use href="#i-martini"/></svg>Коктейли</button><button class="hero-tab" data-filter="cinema"><svg><use href="#i-film"/></svg>Кино</button><button class="hero-tab" data-filter="late"><svg><use href="#i-burger"/></svg>Late food</button></div></div>
 </div></section>
 
+<section class="mood-section" id="moods"><div class="shell"><div class="section-label">Выбери своё настроение</div><div class="mood-grid">
+  <button class="mood active" style="--m:#caff00" data-filter="dance"><svg><use href="#i-dance"/></svg><span>Танцевать<br>до упора</span></button>
+  <button class="mood" style="--m:#ff38a8" data-filter="talk"><svg><use href="#i-martini"/></svg><span>Выпить и<br>поговорить</span></button>
+  <button class="mood" style="--m:#ff4a65" data-filter="date"><svg><use href="#i-heart"/></svg><span>Свидание<br>с шансами</span></button>
+  <button class="mood" style="--m:#38dbff" data-filter="live"><svg><use href="#i-music"/></svg><span>Живая<br>музыка</span></button>
+  <button class="mood" style="--m:#bd48ff" data-filter="cinema"><svg><use href="#i-film"/></svg><span>Кино<br>и после</span></button>
+  <button class="mood" style="--m:#ffc400" data-filter="simple"><svg><use href="#i-beer"/></svg><span>Без<br>пафоса</span></button>
+  <button class="mood" style="--m:#00ff83" data-filter="weird"><svg><use href="#i-alien"/></svg><span>Что-нибудь<br>странное</span></button>
+  <button class="mood" style="--m:#ff7100" data-filter="late"><svg><use href="#i-clock"/></svg><span>После<br>полуночи</span></button>
+</div></div></section>
+
 <section class="picks" id="picks"><div class="shell">
-  <div class="picks-head"><div class="picks-title">Подборки для тебя <em>↝</em></div><button class="all-link" data-scroll="#route">Собрать свой маршрут <svg><use href="#i-arrow"/></svg></button></div>
-  <div class="cards" id="cards">
-    <article class="venue" data-kind="dance simple" style="--accent:#caff00;--photo:url('https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1200')"><div class="venue-photo"></div><span class="tag">КЛУБ · ДЕМО</span><button class="fav" aria-label="В избранное"><svg><use href="#i-heart"/></svg></button><div class="venue-content"><h3>Танцы<br>до упора</h3><p>Клубы, вечеринки, танцполы</p><div class="meta"><span>ТАНЦЫ</span><span>18+</span><b>$$$</b></div></div></article>
-    <article class="venue" data-kind="talk date" style="--accent:#ff38a8;--photo:url('https://images.pexels.com/photos/30133464/pexels-photo-30133464.jpeg?auto=compress&cs=tinysrgb&w=1200')"><div class="venue-photo"></div><span class="tag">БАР · ДЕМО</span><button class="fav" aria-label="В избранное"><svg><use href="#i-heart"/></svg></button><div class="venue-content"><h3>Выпить<br>и поговорить</h3><p>Бары, коктейли, атмосфера</p><div class="meta"><span>КОКТЕЙЛИ</span><span>БЕСЕДЫ</span><b>$$</b></div></div></article>
-    <article class="venue" data-kind="cinema date" style="--accent:#b749ff;--photo:url('https://images.pexels.com/photos/7991379/pexels-photo-7991379.jpeg?auto=compress&cs=tinysrgb&w=1200')"><div class="venue-photo"></div><span class="tag">КИНО · ДЕМО</span><button class="fav" aria-label="В избранное"><svg><use href="#i-heart"/></svg></button><div class="venue-content"><h3>Кино<br>и после</h3><p>Поздний сеанс и продолжение</p><div class="meta"><span>КИНО</span><span>ПОСЛЕ</span><b>$</b></div></div></article>
-    <article class="venue" data-kind="live weird" style="--accent:#38dbff;--photo:url('https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1200')"><div class="venue-photo"></div><span class="tag">LIVE · ДЕМО</span><button class="fav" aria-label="В избранное"><svg><use href="#i-heart"/></svg></button><div class="venue-content"><h3>Живая<br>сцена</h3><p>Музыка, концерт, небольшой бар</p><div class="meta"><span>LIVE</span><span>БАР</span><b>$$</b></div></div></article>
-    <article class="venue" data-kind="late simple" style="--accent:#ff7100;--photo:url('https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?auto=compress&cs=tinysrgb&w=1200')"><div class="venue-photo"></div><span class="tag">LATE FOOD · ДЕМО</span><button class="fav" aria-label="В избранное"><svg><use href="#i-heart"/></svg></button><div class="venue-content"><h3>Финал<br>после полуночи</h3><p>Еда, которая действительно работает поздно</p><div class="meta"><span>ЕДА</span><span>24/7</span><b>$</b></div></div></article>
-  </div>
-  <div class="demo-note">Карточки пока демонстрационные. Реальные названия, адреса, цены и расписания будут добавлены только после проверки источников.</div>
+  <div class="picks-head"><div><div class="picks-title">Места под настроение</div><div class="results-count" id="resultsCount">Загрузка…</div></div><button class="reset-filter" id="resetFilter">Показать всё</button></div>
+  <div class="searchbar"><svg><use href="#i-search"/></svg><input id="searchInput" type="search" placeholder="Название, район, атмосфера…"><select id="priceFilter"><option value="all">Любой бюджет</option><option value="$">$ — бюджетно</option><option value="$$">$$ — средний</option><option value="$$$">$$$ — выше среднего</option></select></div>
+  <div class="cards loading" id="cards"><div class="loading-card"></div><div class="loading-card"></div><div class="loading-card"></div><div class="loading-card"></div></div>
+  <div class="demo-note">Сейчас карточки демонстрационные, но они уже загружаются из отдельного файла данных. Реальные заведения можно будет добавлять без переписывания страницы.</div>
 </div></section>
 
 <section class="route" id="route"><div class="shell"><div class="route-card">
-  <div class="route-head"><div><div class="route-kicker">Конструктор вечера</div><h2>Собрать маршрут за 20 секунд</h2><p>Разогрев → главное событие → нормальный финал.</p></div></div>
-  <div class="form">
-    <label class="field">Энергия<select id="energy"><option value="wild">Шумно и дико</option><option value="balanced">Сначала спокойно</option><option value="calm">Красиво и без суеты</option></select></label>
-    <label class="field">Компания<select id="company"><option value="crew">Своя банда</option><option value="couple">Вдвоём</option><option value="solo">Один, но не пропал</option></select></label>
-    <label class="field">Бюджет на человека<select id="budget"><option value="mid">500–1000 MDL</option><option value="low">До 500 MDL</option><option value="high">Можно не считать</option></select></label>
-    <button class="build" id="build">Собрать вечер <svg><use href="#i-bolt"/></svg></button>
-  </div>
-  <div class="result" id="result"><div class="result-title" id="resultTitle">Твой сценарий</div><div class="route-line"><div class="stop"><small>20:00 · РАЗОГРЕВ</small><b id="s1">Бар</b><span>Собраться, поговорить и настроиться.</span></div><div class="arr"><svg><use href="#i-arrow"/></svg></div><div class="stop"><small>22:30 · ГЛАВНОЕ</small><b id="s2">Событие</b><span>Главная точка под выбранную энергию.</span></div><div class="arr"><svg><use href="#i-arrow"/></svg></div><div class="stop"><small>01:30 · ФИНАЛ</small><b id="s3">Ночная еда</b><span>Последний достойный поступок перед домом.</span></div></div></div>
+  <div class="route-head"><div class="route-kicker">Конструктор вечера</div><h2>Собрать маршрут за 20 секунд</h2><p>Система берёт места из той же базы данных: разогрев → главное событие → ночной финал.</p></div>
+  <div class="form"><label class="field">Энергия<select id="energy"><option value="wild">Шумно и дико</option><option value="balanced">Сначала спокойно</option><option value="calm">Красиво и без суеты</option></select></label><label class="field">Компания<select id="company"><option value="crew">Своя банда</option><option value="couple">Вдвоём</option><option value="solo">Один, но не пропал</option></select></label><label class="field">Бюджет<select id="budget"><option value="all">Любой</option><option value="$">До 500 MDL</option><option value="$$">500–1000 MDL</option><option value="$$$">Можно не считать</option></select></label><button class="build" id="build">Собрать вечер <svg><use href="#i-bolt"/></svg></button></div>
+  <div class="result" id="result"></div>
 </div></div></section>
-
-<section class="newsletter" id="about"><div class="shell"><form class="newsletter-box" id="newsletter"><svg class="newsletter-ico"><use href="#i-send"/></svg><div><b>БУДЬ В КУРСЕ</b><span>События, вечеринки и новые места</span></div><input type="email" placeholder="Твой e-mail" required><button>ПОДПИСАТЬСЯ</button><div class="socials"><span>МЫ В СОЦСЕТЯХ</span><b>◎</b><b>➤</b><b>♪</b><b>●</b></div></form></div></section>
 </main>
-<footer class="footer"><div class="shell footer-row"><span>© 2026 Злачный Кишинёв · Демонстрационная версия</span><span>Hero-визуал синтетический; сведения о местах пока не опубликованы как факты.</span></div></footer>
-<nav class="mobile-nav"><a href="#moods"><svg><use href="#i-spark"/></svg>Настроение</a><a href="#picks"><svg><use href="#i-moon"/></svg>Сегодня</a><a href="#route"><svg><use href="#i-arrow"/></svg>Маршрут</a><button data-map><svg><use href="#i-map"/></svg>Карта</button></nav>
+
+<footer class="footer"><div class="shell footer-row"><span>© 2026 Злачный Кишинёв · Рабочая демо-версия</span><span>Следующий этап: заменить демо-записи проверенными заведениями и источниками. Hero: Nguyen Hung / Pexels.</span></div></footer>
+<nav class="mobile-nav"><a href="#moods"><svg><use href="#i-spark"/></svg>Настроение</a><a href="#picks"><svg><use href="#i-moon"/></svg>Места</a><a href="#route"><svg><use href="#i-arrow"/></svg>Маршрут</a><button data-map><svg><use href="#i-map"/></svg>Карта</button></nav>
 <div class="toast" id="toast"></div>
-<div class="modal" id="mapModal"><div class="modal-card"><button class="modal-close" id="mapClose" aria-label="Закрыть"><svg><use href="#i-close"/></svg></button><iframe title="Карта Кишинёва" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=28.777%2C46.97%2C28.93%2C47.08&amp;layer=mapnik&amp;marker=47.0105%2C28.8638"></iframe></div></div>
-<script src="app.js?v=6"></script>
-</body>
-</html>
+<div class="modal" id="mapModal"><div class="modal-card map-card"><button class="modal-close" data-close="mapModal"><svg><use href="#i-close"/></svg></button><iframe title="Карта Кишинёва" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=28.777%2C46.97%2C28.93%2C47.08&amp;layer=mapnik&amp;marker=47.0105%2C28.8638"></iframe></div></div>
+<div class="modal" id="venueModal"><article class="modal-card venue-modal"><button class="modal-close" data-close="venueModal"><svg><use href="#i-close"/></svg></button><div class="venue-modal-photo" id="venueModalPhoto"></div><div class="venue-modal-body"><div class="venue-modal-type" id="venueModalType"></div><h2 id="venueModalName"></h2><p id="venueModalDescription"></p><div class="venue-details" id="venueDetails"></div><div class="venue-modal-actions"><button id="venueMapButton" disabled>Карта после проверки</button><button id="venueLinkButton" disabled>Страница заведения</button></div><div class="verification" id="venueVerification"></div></div></article></div>
+<script src="app.js?v=7"></script>
+</body></html>
