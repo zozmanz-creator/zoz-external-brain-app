@@ -1,51 +1,15 @@
-const HERO_SOURCES=[
-  'https://images.squarespace-cdn.com/content/v1/58d6b4fff7e0ab027a072845/1599487851648-2JOW59IZPAYPFH8PLD8F/zaxi-night1.jpg?format=2500w',
-  'https://images.squarespace-cdn.com/content/v1/58d6b4fff7e0ab027a072845/1599487852061-X90P1WCGF0P7AKF2UYU1/zaxi-night2.jpg?format=2500w',
-  'https://images.unsplash.com/photo-1619126382039-4807e9677ec2?auto=format&fit=crop&w=2400&q=92'
-];
-(function loadSharpHero(index=0){
-  const target=document.querySelector('.hero-photo');if(!target||index>=HERO_SOURCES.length)return;
-  const image=new Image();image.decoding='async';image.onload=()=>{target.style.backgroundImage=`url("${HERO_SOURCES[index]}")`;target.dataset.heroSource=String(index)};image.onerror=()=>loadSharpHero(index+1);image.src=HERO_SOURCES[index];
-})();
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-function chisinauNow(){
-  const n=new Date();
-  const t=new Intl.DateTimeFormat('ru-RU',{timeZone:'Europe/Chisinau',hour:'2-digit',minute:'2-digit'}).format(n);
-  const d=new Intl.DateTimeFormat('ru-RU',{timeZone:'Europe/Chisinau',weekday:'long',day:'numeric',month:'long'}).format(n);
-  $('#clock').textContent=t;
-  $('#date').textContent=d.charAt(0).toUpperCase()+d.slice(1);
-}
-chisinauNow();setInterval(chisinauNow,30000);
-$$('[data-scroll]').forEach(b=>b.addEventListener('click',()=>$(b.dataset.scroll)?.scrollIntoView({behavior:'smooth'})));
-const toast=$('#toast');let tt;
-function say(text){toast.textContent=text;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),2600)}
-function filterCards(filter){
-  $$('.venue').forEach(card=>{card.style.display=card.dataset.kind.split(' ').includes(filter)?'block':'none'});
-  $('#picks').scrollIntoView({behavior:'smooth',block:'start'});
-}
-$$('.mood').forEach(button=>button.addEventListener('click',()=>{
-  $$('.mood').forEach(x=>x.classList.remove('active'));button.classList.add('active');filterCards(button.dataset.filter);
-}));
-$$('.hero-tab').forEach(button=>button.addEventListener('click',()=>{
-  $$('.hero-tab').forEach(x=>x.classList.remove('active'));button.classList.add('active');
-  const corresponding=$(`.mood[data-filter="${button.dataset.heroFilter}"]`);if(corresponding){$$('.mood').forEach(x=>x.classList.remove('active'));corresponding.classList.add('active')}
-  filterCards(button.dataset.heroFilter);
-}));
-$$('.fav').forEach(button=>button.addEventListener('click',event=>{
-  event.stopPropagation();button.classList.toggle('active');say(button.classList.contains('active')?'Добавлено в избранное':'Удалено из избранного');
-}));
-const scenarios={
-  wild:{crew:['Шумный бар для сбора','Клуб или большая вечеринка','Ночная еда для всей банды'],couple:['Коктейльный разогрев','Танцпол без скуки','Поздний бургер'],solo:['Бар у стойки','Событие с живой публикой','Перекус после ночи']},
-  balanced:{crew:['Бар, где можно собраться','Концерт / DJ / rooftop','Еда после полуночи'],couple:['Красивый бар','Кино, live или rooftop','Финальный бокал'],solo:['Камерное место','Квиз / live / кино','Ночная кухня']},
-  calm:{crew:['Вино и закуски','Спокойный live','Десерт или прогулка'],couple:['Место с видом','Поздний сеанс или музыка','Тихий бар'],solo:['Кофе-бар или вино','Кино / выставка / джем','Прогулка через центр']}
-};
-$('#build').addEventListener('click',()=>{
-  const e=$('#energy').value,c=$('#company').value,b=$('#budget').value,s=scenarios[e][c];
-  $('#s1').textContent=s[0];$('#s2').textContent=s[1];$('#s3').textContent=s[2];
-  const names={wild:'«Сегодня без тормозов»',balanced:'«Сначала культурно»',calm:'«Красиво и без суеты»'},money={low:' · бюджетно',mid:' · нормальный бюджет',high:' · без компромиссов'};
-  $('#resultTitle').textContent='Твой сценарий: '+names[e]+money[b];$('#result').classList.add('show');$('#result').scrollIntoView({behavior:'smooth',block:'nearest'});
-});
-$$('[data-map]').forEach(button=>button.addEventListener('click',event=>{event.preventDefault();$('#mapModal').classList.add('show')}));
-$('#mapClose').addEventListener('click',()=>$('#mapModal').classList.remove('show'));
-$('#mapModal').addEventListener('click',event=>{if(event.target===$('#mapModal'))$('#mapModal').classList.remove('show')});
-$('#newsletter').addEventListener('submit',event=>{event.preventDefault();event.currentTarget.reset();say('Готово. Настоящую подписку подключим после запуска базы мест.')});
+const state={venues:[],filter:'dance',query:'',price:'all',favorites:new Set(JSON.parse(localStorage.getItem('zlachnyFavorites')||'[]'))};
+const accent={dance:'#caff00',talk:'#ff38a8',date:'#ff4a65',live:'#38dbff',cinema:'#bd48ff',simple:'#ffc400',weird:'#00ff83',late:'#ff7100'};
+function icon(id){return `<svg><use href="#${id}"/></svg>`}
+function chisinauNow(){const n=new Date();$('#clock').textContent=new Intl.DateTimeFormat('ru-RU',{timeZone:'Europe/Chisinau',hour:'2-digit',minute:'2-digit'}).format(n);const d=new Intl.DateTimeFormat('ru-RU',{timeZone:'Europe/Chisinau',weekday:'long',day:'numeric',month:'long'}).format(n);$('#date').textContent=d.charAt(0).toUpperCase()+d.slice(1)}
+function say(text){const t=$('#toast');t.textContent=text;t.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.classList.remove('show'),2600)}
+function filtered(){const q=state.query.toLowerCase();return state.venues.filter(v=>(state.filter==='all'||v.categories.includes(state.filter))&&(state.price==='all'||v.priceLevel===state.price)&&(!q||[v.name,v.type,v.district,v.address,v.description,...v.tags].join(' ').toLowerCase().includes(q)))}
+function venueCard(v){const primary=v.categories[0]||'talk',color=accent[primary]||'#caff00',fav=state.favorites.has(v.id);return `<article class="venue" data-id="${v.id}" style="--accent:${color};--photo:url('${v.image}')"><div class="venue-photo"></div><span class="tag">${v.type}</span><button class="fav ${fav?'active':''}" data-fav="${v.id}" aria-label="В избранное">${icon('i-heart')}</button><div class="venue-content"><h3>${v.name}</h3><p>${v.description}</p><div class="venue-location">${icon('i-pin')}<span>${v.district} · ${v.hours}</span></div><div class="meta">${v.tags.slice(0,3).map(x=>`<span>${x}</span>`).join('')}<b>${v.priceLevel}</b></div></div></article>`}
+function render(){const list=filtered(),cards=$('#cards');cards.classList.remove('loading');cards.innerHTML=list.length?list.map(venueCard).join(''):'<div class="empty-state">Ничего не найдено. Попробуй другой фильтр.</div>';$('#resultsCount').textContent=`Показано ${list.length} из ${state.venues.length}`;$$('[data-id]').forEach(c=>c.addEventListener('click',()=>openVenue(c.dataset.id)));$$('[data-fav]').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();const id=b.dataset.fav;state.favorites.has(id)?state.favorites.delete(id):state.favorites.add(id);localStorage.setItem('zlachnyFavorites',JSON.stringify([...state.favorites]));render();say(state.favorites.has(id)?'Добавлено в избранное':'Удалено из избранного')}))}
+function setFilter(filter){state.filter=filter;$$('[data-filter]').forEach(b=>b.classList.toggle('active',b.dataset.filter===filter));render();$('#picks').scrollIntoView({behavior:'smooth',block:'start'})}
+function openVenue(id){const v=state.venues.find(x=>x.id===id);if(!v)return;$('#venueModalPhoto').style.backgroundImage=`linear-gradient(180deg,transparent,rgba(0,0,0,.18)),url('${v.image}')`;$('#venueModalType').textContent=v.type;$('#venueModalName').textContent=v.name;$('#venueModalDescription').textContent=v.description;$('#venueDetails').innerHTML=`<div class="detail"><span>Район</span><b>${v.district}</b></div><div class="detail"><span>Адрес</span><b>${v.address}</b></div><div class="detail"><span>Часы</span><b>${v.hours}</b></div><div class="detail"><span>Бюджет</span><b>${v.priceLevel}</b></div><div class="detail"><span>Категории</span><b>${v.tags.join(' · ')}</b></div>`;$('#venueVerification').textContent=v.status==='verified'?`Проверено: ${v.verifiedAt}`:'Демо-запись. Адрес, график и ссылки ещё не подтверждены источниками.';$('#venueModal').classList.add('show')}
+function buildRoute(){const selectedBudget=$('#budget').value;let pool=state.venues.filter(v=>selectedBudget==='all'||v.priceLevel===selectedBudget);if(!pool.length)pool=state.venues;const energy=$('#energy').value,company=$('#company').value;const pick=(cats,used=[])=>pool.find(v=>cats.some(c=>v.categories.includes(c))&&!used.includes(v.id))||pool.find(v=>!used.includes(v.id))||pool[0];const first=pick(energy==='calm'?['talk','date']:['talk','simple']);const second=pick(energy==='wild'?['dance','live']:energy==='calm'?['cinema','live']:['live','dance','cinema'],[first.id]);const third=pick(['late','simple'],[first.id,second.id]);const title=(energy==='wild'?'Сегодня без тормозов':energy==='calm'?'Красиво и без суеты':'Сначала культурно')+(company==='couple'?' · вдвоём':company==='solo'?' · соло':' · своей компанией');$('#result').innerHTML=`<div class="result-title">Твой сценарий: «${title}»</div><div class="route-line"><div class="stop"><small>20:00 · РАЗОГРЕВ</small><b>${first.name}</b><span>${first.type} · ${first.priceLevel}</span></div><div class="stop"><small>22:30 · ГЛАВНОЕ</small><b>${second.name}</b><span>${second.type} · ${second.priceLevel}</span></div><div class="stop"><small>01:30 · ФИНАЛ</small><b>${third.name}</b><span>${third.type} · ${third.priceLevel}</span></div></div>`;$('#result').classList.add('show');$('#result').scrollIntoView({behavior:'smooth',block:'nearest'})}
+async function init(){chisinauNow();setInterval(chisinauNow,30000);try{const r=await fetch('venues.json?v=7',{cache:'no-store'});if(!r.ok)throw new Error('data');state.venues=(await r.json()).items||[];render()}catch(e){$('#cards').innerHTML='<div class="empty-state">Не удалось загрузить файл данных. Обнови страницу.</div>';$('#resultsCount').textContent='Ошибка загрузки'}
+$$('[data-filter]').forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.filter)));$('#resetFilter').addEventListener('click',()=>{state.filter='all';state.query='';state.price='all';$('#searchInput').value='';$('#priceFilter').value='all';$$('[data-filter]').forEach(x=>x.classList.remove('active'));render()});$('#searchInput').addEventListener('input',e=>{state.query=e.target.value;render()});$('#priceFilter').addEventListener('change',e=>{state.price=e.target.value;render()});$$('[data-scroll]').forEach(b=>b.addEventListener('click',()=>$(b.dataset.scroll)?.scrollIntoView({behavior:'smooth'})));$('#build').addEventListener('click',buildRoute);$$('[data-map]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();$('#mapModal').classList.add('show')}));$$('[data-close]').forEach(b=>b.addEventListener('click',()=>$('#'+b.dataset.close).classList.remove('show')));$$('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('show')}));document.addEventListener('keydown',e=>{if(e.key==='Escape')$$('.modal.show').forEach(m=>m.classList.remove('show'))})}
+document.addEventListener('DOMContentLoaded',init);
