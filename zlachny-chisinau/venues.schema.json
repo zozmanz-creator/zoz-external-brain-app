@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Zlachny Chisinau venue data",
+  "type": "object",
+  "required": ["schemaVersion", "updatedAt", "items"],
+  "properties": {
+    "schemaVersion": {"const": 3},
+    "updatedAt": {"type": "string", "format": "date"},
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "type", "categories", "atmospheres", "district", "address", "coordinates", "hoursLabel", "schedule", "status", "sources"],
+        "properties": {
+          "id": {"type": "string", "minLength": 2},
+          "name": {"type": "string"},
+          "type": {"type": "string"},
+          "categories": {"type": "array", "items": {"type": "string"}},
+          "atmospheres": {"type": "array", "items": {"type": "string"}},
+          "district": {"type": "string"},
+          "address": {"type": "string"},
+          "coordinates": {"type": "object", "required": ["lat", "lng"], "properties": {"lat": {"type": "number"}, "lng": {"type": "number"}}},
+          "hoursLabel": {"type": "string"},
+          "schedule": {"type": "object"},
+          "status": {"enum": ["verified", "partial", "demo"]},
+          "verifiedAt": {"type": ["string", "null"]},
+          "sources": {"type": "array", "items": {"type": "object", "required": ["label", "url"], "properties": {"label": {"type": "string"}, "url": {"type": "string", "format": "uri"}}}}
+        }
+      }
+    }
+  }
+}
