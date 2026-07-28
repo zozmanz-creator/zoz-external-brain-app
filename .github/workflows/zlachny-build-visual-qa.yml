@@ -75,6 +75,8 @@ jobs:
           npm install --no-audit --no-fund
           npx playwright install --with-deps chromium
       - name: Test published desktop and mobile site
+        id: playwright
+        continue-on-error: true
         working-directory: zlachny-chisinau
         env:
           GITHUB_SHA: ${{ steps.commit.outputs.sha }}
@@ -86,6 +88,30 @@ jobs:
         run: |
           node tests/write-summary.js || true
           if [ -f qa-output/summary.md ]; then cat qa-output/summary.md >> "$GITHUB_STEP_SUMMARY"; fi
+      - name: Persist latest QA evidence in repository
+        if: always()
+        env:
+          QA_OUTCOME: ${{ steps.playwright.outcome }}
+          TESTED_SHA: ${{ steps.commit.outputs.sha }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          rm -rf zlachny-chisinau/qa/latest
+          mkdir -p zlachny-chisinau/qa/latest
+          cp zlachny-chisinau/qa-output/summary.md zlachny-chisinau/qa/latest/summary.md 2>/dev/null || true
+          cp zlachny-chisinau/qa-output/*-metrics.json zlachny-chisinau/qa/latest/ 2>/dev/null || true
+          cp zlachny-chisinau/qa-output/*-actual.png zlachny-chisinau/qa/latest/ 2>/dev/null || true
+          cp zlachny-chisinau/qa-output/*-full.png zlachny-chisinau/qa/latest/ 2>/dev/null || true
+          cp zlachny-chisinau/qa-output/*-diff.png zlachny-chisinau/qa/latest/ 2>/dev/null || true
+          cat > zlachny-chisinau/qa/latest/run.json <<EOF
+          {"outcome":"${QA_OUTCOME}","testedSha":"${TESTED_SHA}","runId":"${{ github.run_id }}","runUrl":"${RUN_URL}","generatedAt":"$(date -u +%FT%TZ)"}
+          EOF
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add zlachny-chisinau/qa/latest
+          if ! git diff --cached --quiet; then
+            git commit -m "Record Zlachny v10 visual QA ${QA_OUTCOME} [qa-bot]"
+            git push
+          fi
       - name: Upload QA evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -96,3 +122,6 @@ jobs:
             zlachny-chisinau/playwright-report
             zlachny-chisinau/test-results
           retention-days: 30
+      - name: Fail workflow when browser QA fails
+        if: steps.playwright.outcome == 'failure'
+        run: exit 1
