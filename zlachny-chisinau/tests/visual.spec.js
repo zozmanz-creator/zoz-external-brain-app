@@ -1,3 +1,4 @@
+// The page is intentionally unchanged: this commit verifies repeatable pixel comparison against the saved baseline.
 const { test, expect } = require('@playwright/test');
 const fs=require('fs'),path=require('path');
 const pixelmatch=require('pixelmatch').default||require('pixelmatch');
