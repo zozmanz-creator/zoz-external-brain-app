@@ -61,12 +61,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Restore pixel baseline
-        id: baseline
-        uses: actions/cache@v4
-        with:
-          path: zlachny-chisinau/.visual-baseline
-          key: zlachny-v10-pixel-baseline-top-v2
       - name: Install browser QA
         working-directory: zlachny-chisinau
         run: |
@@ -78,7 +72,7 @@ jobs:
         working-directory: zlachny-chisinau
         env:
           GITHUB_SHA: ${{ steps.commit.outputs.sha }}
-          UPDATE_VISUAL_BASELINE: ${{ steps.baseline.outputs.cache-hit != 'true' && '1' || '0' }}
+          UPDATE_VISUAL_BASELINE: ${{ hashFiles('zlachny-chisinau/qa/baseline/desktop.png') == '' && '1' || '0' }}
         run: npx playwright test
       - name: QA summary
         if: always()
@@ -105,7 +99,7 @@ jobs:
           EOF
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add zlachny-chisinau/qa/latest
+          git add zlachny-chisinau/qa/latest zlachny-chisinau/qa/baseline
           if ! git diff --cached --quiet; then
             git commit -m "Record Zlachny v10 visual QA ${QA_OUTCOME} [qa-bot]"
             git push
