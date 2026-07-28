@@ -1,4 +1,4 @@
-// The page is intentionally deterministic in ?qa mode so pixel comparisons are repeatable.
+// Repository-backed baseline verification run. The published page is unchanged.
 const { test, expect } = require('@playwright/test');
 const fs=require('fs'),path=require('path');
 const pixelmatch=require('pixelmatch').default||require('pixelmatch');
