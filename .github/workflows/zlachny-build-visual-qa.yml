@@ -1,0 +1,98 @@
+name: Zlachny build and visual QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'zlachny-chisinau/**'
+      - '.github/workflows/zlachny-build-visual-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  QA_BASE_URL: https://zozmanz-creator.github.io/zoz-external-brain-app/zlachny-chisinau
+
+jobs:
+  build-publish-qa:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Install image tooling
+        run: python -m pip install --disable-pip-version-check pillow==11.1.0
+      - name: Generate local images and v10 files
+        working-directory: zlachny-chisinau
+        run: python scripts/build_v10.py
+      - name: Static validation
+        working-directory: zlachny-chisinau
+        run: |
+          python -m json.tool venues-v10.json >/dev/null
+          node --check v10.js
+          grep -q 'data-build="v10"' index.html
+          ! grep -E 'pexels|unsplash|squarespace-cdn' v10.css venues-v10.json
+      - name: Commit generated local assets
+        id: commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add zlachny-chisinau/index.html zlachny-chisinau/v10.css zlachny-chisinau/v10.js zlachny-chisinau/venues-v10.json zlachny-chisinau/assets
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "Build Zlachny v10 local assets [asset-bot]"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Wait for published v10
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 60); do
+            html=$(curl -fsSL "${QA_BASE_URL}/?qa=${{ steps.commit.outputs.sha }}" || true)
+            if grep -q 'data-build="v10"' <<<"$html"; then exit 0; fi
+            echo "Waiting for GitHub Pages ($attempt/60)…"; sleep 10
+          done
+          exit 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: zlachny-chisinau/package.json
+      - name: Restore pixel baseline
+        id: baseline
+        uses: actions/cache@v4
+        with:
+          path: zlachny-chisinau/.visual-baseline
+          key: zlachny-v10-pixel-baseline
+      - name: Install browser QA
+        working-directory: zlachny-chisinau
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Test published desktop and mobile site
+        working-directory: zlachny-chisinau
+        env:
+          GITHUB_SHA: ${{ steps.commit.outputs.sha }}
+          UPDATE_VISUAL_BASELINE: ${{ steps.baseline.outputs.cache-hit != 'true' && '1' || '0' }}
+        run: npx playwright test
+      - name: QA summary
+        if: always()
+        working-directory: zlachny-chisinau
+        run: |
+          node tests/write-summary.js || true
+          if [ -f qa-output/summary.md ]; then cat qa-output/summary.md >> "$GITHUB_STEP_SUMMARY"; fi
+      - name: Upload QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zlachny-v10-visual-qa-${{ github.run_number }}
+          path: |
+            zlachny-chisinau/qa-output
+            zlachny-chisinau/playwright-report
+            zlachny-chisinau/test-results
+          retention-days: 30
