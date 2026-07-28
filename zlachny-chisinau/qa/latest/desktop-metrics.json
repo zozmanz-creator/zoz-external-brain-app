@@ -4,6 +4,7 @@
     "width": 1440,
     "height": 1000
   },
+  "scrollY": 0,
   "venueCount": 7,
   "hero": "url(\"https://zozmanz-creator.github.io/zoz-external-brain-app/zlachny-chisinau/assets/hero-desktop.webp\")",
   "overflow": {
