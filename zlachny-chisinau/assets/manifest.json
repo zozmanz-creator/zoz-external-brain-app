@@ -1,0 +1,79 @@
+{
+  "generatedAt": "2026-07-28",
+  "heroSource": "https://images.pexels.com/photos/30592890/pexels-photo-30592890.jpeg?auto=compress&cs=tinysrgb&w=2400",
+  "assets": {
+    "heroDesktop": {
+      "path": "assets/hero-desktop.webp",
+      "bytes": 265800,
+      "sha256": "2f035e7c41a60ef63ac470e19b56053ad9481e8213d905915b70aa99d6b0cee9"
+    },
+    "heroMobile": {
+      "path": "assets/hero-mobile.webp",
+      "bytes": 138340,
+      "sha256": "1dcef16972ac4b66496e8c3ff523d0b8c64982a1eac6a205816dcb69f1b78f9f"
+    },
+    "escobar-rooftop": {
+      "path": "assets/venues/escobar-rooftop.webp",
+      "bytes": 56386,
+      "sha256": "887ad128cd6305c07b6dc48ded944f700f2922fb46a6b0b1d760e92307650969",
+      "source": "https://images.pexels.com/photos/3171837/pexels-photo-3171837.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "status": "illustrative"
+    },
+    "soho-evolution": {
+      "path": "assets/venues/soho-evolution.webp",
+      "bytes": 30358,
+      "sha256": "5b7a49561057819a1e6038e737919eda86c2f63a80a6a13e488b6286474c098c",
+      "source": "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "status": "illustrative"
+    },
+    "churchills": {
+      "path": "assets/venues/churchills.webp",
+      "bytes": 133138,
+      "sha256": "974ecbff198497e09feee5c93072c1766673c059cc3d27951da2cd11c5ee29e4",
+      "source": "https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "status": "illustrative"
+    },
+    "cineplex-malldova": {
+      "path": "assets/venues/cineplex-malldova.webp",
+      "bytes": 18650,
+      "sha256": "62cc887749ba171f76d4e686e490729856f703613e9d0dd7e3df586ef4648855",
+      "source": "https://images.pexels.com/photos/7991379/pexels-photo-7991379.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "status": "illustrative"
+    },
+    "oro": {
+      "path": "assets/venues/oro.webp",
+      "bytes": 104262,
+      "sha256": "498b4b440d13b7ac9875c2ab0a8c97f19b21032ace93bbfb84c317f9a7125ebe",
+      "source": "https://images.pexels.com/photos/30592863/pexels-photo-30592863.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "status": "illustrative"
+    },
+    "baf": {
+      "path": "assets/venues/baf.webp",
+      "bytes": 59668,
+      "sha256": "a032b5ad91270fd8e7172a3760551296d4119cdccdf06f9aeef5977fcf7cd574",
+      "source": "https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "status": "illustrative"
+    },
+    "labrewtory": {
+      "path": "assets/venues/labrewtory.webp",
+      "bytes": 32486,
+      "sha256": "3586b33e39c682a9ce619e855b7c09126309bbdc70d6306a31290f6e5f480b94",
+      "source": "https://images.pexels.com/photos/1269025/pexels-photo-1269025.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "status": "illustrative"
+    },
+    "demo-underground": {
+      "path": "assets/venues/demo-underground.webp",
+      "bytes": 61988,
+      "sha256": "44981f7060806666ec7363800fa81069845baf5f1a4aa8546cca643de263ada6",
+      "source": "https://images.pexels.com/photos/2114365/pexels-photo-2114365.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "status": "illustrative"
+    },
+    "demo-latefood": {
+      "path": "assets/venues/demo-latefood.webp",
+      "bytes": 80692,
+      "sha256": "6e6b31bf32e509b961eff3f38b6d611a07e1f39f7ac684a9b83ee1e8cdc99f54",
+      "source": "https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "status": "illustrative"
+    }
+  }
+}
