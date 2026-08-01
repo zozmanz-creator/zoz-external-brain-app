@@ -1,20 +1,18 @@
 {
   "generatedAt": "2026-08-01",
   "heroSource": {
-    "city": "https://images.pexels.com/photos/14471525/pexels-photo-14471525.jpeg?auto=compress&cs=tinysrgb&w=2400",
-    "party": "https://images.pexels.com/photos/30592890/pexels-photo-30592890.jpeg?auto=compress&cs=tinysrgb&w=2400",
-    "composition": "night skyline + rooftop party + generated neon architecture and disco ball"
+    "type": "project-approved-svg-recreation"
   },
   "assets": {
     "heroDesktop": {
-      "path": "assets/hero-desktop.webp",
-      "bytes": 136710,
-      "sha256": "9cc139e75b4f0fbf9574456a1063f493a793870fc71af19bd3274596b58070a5"
+      "path": "assets/hero-approved.svg",
+      "bytes": 9464,
+      "sha256": "17d3b9836a80eb8f62472f90d9d9f98b6c790aa9897fa6bffb67d4883b6f935a"
     },
     "heroMobile": {
-      "path": "assets/hero-mobile.webp",
-      "bytes": 73926,
-      "sha256": "6644142abbe378753fcef93612c521459e3aebbb31a1b8e69801090db8b59ef4"
+      "path": "assets/hero-approved-mobile.svg",
+      "bytes": 4208,
+      "sha256": "911d58789a803258f075834702b51977287172a169395eef1a1351ba938b7488"
     },
     "escobar-rooftop": {
       "path": "assets/venues/escobar-rooftop.webp",
