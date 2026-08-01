@@ -1,0 +1,12 @@
+.hero-bg{
+  background-image:url('assets/hero-approved.svg')!important;
+  background-position:center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+}
+@media(max-width:760px){
+  .hero-bg{
+    background-image:url('assets/hero-approved-mobile.svg')!important;
+    background-position:center 42%!important;
+  }
+}
