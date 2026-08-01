@@ -1,0 +1,20 @@
+{
+  "project": "desktop",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "scrollY": 0,
+  "venueCount": 7,
+  "hero": "url(\"https://zozmanz-creator.github.io/zoz-external-brain-app/zlachny-chisinau/assets/hero-approved.svg\")",
+  "overflow": {
+    "scroll": 1440,
+    "client": 1440
+  },
+  "visual": {
+    "ratio": null,
+    "dimensionsMatch": null,
+    "baselineBootstrapped": true
+  },
+  "knownExternalFailures": []
+}

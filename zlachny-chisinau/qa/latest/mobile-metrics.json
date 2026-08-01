@@ -1,0 +1,20 @@
+{
+  "project": "mobile",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "scrollY": 0,
+  "venueCount": 7,
+  "hero": "url(\"https://zozmanz-creator.github.io/zoz-external-brain-app/zlachny-chisinau/assets/hero-approved-mobile.svg\")",
+  "overflow": {
+    "scroll": 390,
+    "client": 390
+  },
+  "visual": {
+    "ratio": null,
+    "dimensionsMatch": null,
+    "baselineBootstrapped": true
+  },
+  "knownExternalFailures": []
+}
