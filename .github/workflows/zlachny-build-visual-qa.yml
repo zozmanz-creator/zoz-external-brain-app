@@ -72,7 +72,7 @@ jobs:
         working-directory: zlachny-chisinau
         env:
           GITHUB_SHA: ${{ steps.commit.outputs.sha }}
-          UPDATE_VISUAL_BASELINE: ${{ hashFiles('zlachny-chisinau/qa/baseline/desktop.png') == '' && '1' || '0' }}
+          UPDATE_VISUAL_BASELINE: ${{ contains(github.event.head_commit.message, '[update-baseline]') && '1' || (hashFiles('zlachny-chisinau/qa/baseline/desktop.png') == '' && '1' || '0') }}
         run: npx playwright test
       - name: QA summary
         if: always()
