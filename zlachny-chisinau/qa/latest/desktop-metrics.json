@@ -12,10 +12,9 @@
     "client": 1440
   },
   "visual": {
-    "ratio": 0,
-    "dimensionsMatch": true,
-    "differentPixels": 0,
-    "baselineBootstrapped": false
+    "ratio": null,
+    "dimensionsMatch": null,
+    "baselineBootstrapped": true
   },
   "knownExternalFailures": []
 }
